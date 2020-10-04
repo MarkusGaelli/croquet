@@ -43,4 +43,4 @@ class MyView extends Croquet.View {
 
 }
 
-Croquet.startSession("hello", MyModel, MyView);
+Croquet.Session.join("hello", MyModel, MyView);
