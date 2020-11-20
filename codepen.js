@@ -49,6 +49,5 @@
     }
     app.badge = 'badge';
     app.qrcode = 'qrcode';
-    app.stats = 'stats';
     app.messages = true;
 })();
