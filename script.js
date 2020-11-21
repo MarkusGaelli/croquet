@@ -49,8 +49,8 @@ class Rocket extends Croquet.Model {
     }
 
     reset() {
-        this.x = 0;
-        this.y = 0;
+        this.x = 100;
+        this.y = 100;
         this.rotation = 0;
         this.speed = 0;
         this.acceleration = 0;
@@ -82,7 +82,7 @@ class Rocket extends Croquet.Model {
     }
 }
 
-Rocket.register();
+Rocket.register("Rocket");
 let theView;
 
 function keyDownHandler(e) {
@@ -99,10 +99,15 @@ function keyDownHandler(e) {
         theView.publish("rocket", "accelerate");
         console.log("Up Cursor down");
     }
+    else if (e.key == " " || e.key == "Spacebar") {
+        theView.publish("rocket", "reset");
+        console.log("Space down");
+    }
     else if (e.key == "Down" || e.key == "ArrowDown") {
         theView.publish("rocket", "decelerate");
-        console.log("Down Cursor down");
+        console.log("Down 2Cursor down");
     }
+
 }
 
 class RocketView extends Croquet.View {
@@ -135,4 +140,12 @@ class RocketView extends Croquet.View {
     }
 }
 
-Croquet.Session.join("hello", Rocket, RocketView);
+Croquet.Session.join({
+    appId: "io.github.markusgaelli.croquet",
+    name: "rocket",
+    password: "secret",
+    model: Rocket,
+    view: RocketView
+});
+
+//Croquet.Session.join("hello", Rocket, RocketView);
