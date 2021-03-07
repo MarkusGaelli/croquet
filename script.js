@@ -115,7 +115,7 @@ function keyDownHandler(e) {
 
 }
 
-class RocketView1 extends Croquet.View {
+class RocketView extends Croquet.View {
 
     constructor(model) {
         super(model);
@@ -146,11 +146,11 @@ class RocketView1 extends Croquet.View {
 }
 
 Croquet.Session.join({
-    appId: "io.github.markusgaelli.croquet1",
-    name: "rocket2",
+    appId: "io.github.markusgaelli.croquet",
+    name: "rocket",
     password: "secret",
     model: Rocket,
-    view: RocketView1
+    view: RocketView
 });
 
 //Croquet.Session.join("hello1", Rocket, RocketView);
