@@ -32,6 +32,11 @@ Alice defines five input devices:
 What would be the model here? The proportions of the rocket, it's starting position, orientation, and speed.
 
 */
+
+function mod(n, m) {
+    return ((n % m) + m) % m;
+}
+
 class Rocket extends Croquet.Model {
 
     init() {
@@ -110,7 +115,7 @@ function keyDownHandler(e) {
 
 }
 
-class RocketView extends Croquet.View {
+class RocketView1 extends Croquet.View {
 
     constructor(model) {
         super(model);
@@ -134,18 +139,18 @@ class RocketView extends Croquet.View {
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.beginPath();
         context.fillStyle = "#FF0000";
-        context.arc(rocket.x % 500, rocket.y % 500, 20, 0, 2 * Math.PI);
+        context.arc(mod(rocket.x, 500), mod(rocket.y, 500), 20, 0, 2 * Math.PI);
         context.fill();
         context.stroke();
     }
 }
 
 Croquet.Session.join({
-    appId: "io.github.markusgaelli.croquet",
-    name: "rocket",
+    appId: "io.github.markusgaelli.croquet1",
+    name: "rocket2",
     password: "secret",
     model: Rocket,
-    view: RocketView
+    view: RocketView1
 });
 
-//Croquet.Session.join("hello", Rocket, RocketView);
+//Croquet.Session.join("hello1", Rocket, RocketView);
